@@ -13,7 +13,7 @@ int close(int fildes);
 int main(int argc, char const *argv[]){
     int n;
     char c;
-    while((n=read(0,&c,1)) > 0)
+    while(read(0,&c,1))
         write(1,&c,1);
     return 0;
 }

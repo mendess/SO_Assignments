@@ -6,34 +6,38 @@
  */
 
 #include <signal.h>
+#include <stdio.h>
 #include <sys/types.h>
 #include <unistd.h>
-#include <stdio.h>
 
-typedef void (*sighandler_t) (int);
+typedef void (*sighandler_t)(int);
 
 int time;
 int timesBooped;
 
-void boop(int i){
-    (void) i;
+void boop(int i)
+{
+    (void)i;
     printf("Time elapsed: %d\n", time);
     timesBooped++;
 }
 
-void sepuku(int i){
-    (void) i;
+void sepuku(int i)
+{
+    (void)i;
     printf("Times booped: %d\n", timesBooped);
     _exit(0);
 }
 
-void alarmS(int i){
-    (void) i;
+void alarmS(int i)
+{
+    (void)i;
     alarm(1);
     time++;
 }
 
-int main(){
+int main()
+{
     printf("%d\n", getpid());
     signal(SIGINT, boop);
     signal(SIGQUIT, sepuku);
@@ -41,7 +45,7 @@ int main(){
 
     alarm(1);
 
-    while(1){
+    while (1) {
         pause();
     }
     return 0;

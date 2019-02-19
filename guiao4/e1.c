@@ -1,6 +1,6 @@
-#include <unistd.h>
-#include <sys/types.h>
 #include <fcntl.h>
+#include <sys/types.h>
+#include <unistd.h>
 /*
  * Escreva um programa que redireccione o descritor associado ao seu standard input para o ficheiro
  * /etc/passwd, e o standard output e error respectivamente para saida.txt e erros.txt. Tenha em conta
@@ -14,20 +14,22 @@
  * boa prática fechá-los de imediato.
 */
 
-int main(){
-    int fd0,fd1,fd2;
+int main()
+{
+    int fd0, fd1, fd2;
     fd0 = open("/etc/passwd", O_RDONLY);
-    dup2(fd0,0);
-    fd1 = open("stdout.txt", O_CREAT|O_WRONLY|O_TRUNC);
-    dup2(fd1,1);
-    fd2 = open("stderr.txt", O_CREAT|O_WRONLY|O_TRUNC);
-    dup2(fd2,2);
-    if(fd0 == -1 || fd1 == -1 || fd2 == -2) return -1;
+    dup2(fd0, 0);
+    fd1 = open("stdout.txt", O_CREAT | O_WRONLY | O_TRUNC);
+    dup2(fd1, 1);
+    fd2 = open("stderr.txt", O_CREAT | O_WRONLY | O_TRUNC);
+    dup2(fd2, 2);
+    if (fd0 == -1 || fd1 == -1 || fd2 == -2)
+        return -1;
     char buffer[1024];
     int n;
-    while((n=read(0,buffer,1024)) > 0){
-        write(1,buffer,1024);
-        write(2,buffer,1024);
+    while ((n = read(0, buffer, 1024)) > 0) {
+        write(1, buffer, 1024);
+        write(2, buffer, 1024);
     }
     return 0;
 }

@@ -1,6 +1,6 @@
-#include <unistd.h>
-#include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
 
 /*
  * Escreva três programas. O primeiro cria apenas um pipe com nome “fifo”.
@@ -18,6 +18,7 @@
  * até que um processo o abra para leitura, e vice-versa.
  */
 
-int main(){
-    mkfifo("fifo",0622);
+int main()
+{
+    mkfifo("fifo", 0622);
 }

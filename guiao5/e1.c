@@ -1,5 +1,5 @@
-#include <unistd.h>
 #include <string.h>
+#include <unistd.h>
 
 /*
  * Escreva um programa que crie um pipe anónimo e de seguida crie um processo filho. Relembre que as
@@ -11,16 +11,17 @@
  * inverter os papeis de modo à informação ser transmitida do filho para o pai
  */
 
-int main(){
+int main()
+{
     int pfd[2];
     char buf[10];
     pipe(pfd);
 
-    if(!fork()){
+    if (!fork()) {
         int n;
-        while((n=read(pfd[0],buf,10)) > 0)
-                write(1,buf,n);
-    }else{
+        while ((n = read(pfd[0], buf, 10)) > 0)
+            write(1, buf, n);
+    } else {
         sleep(2);
         int n;
         write(pfd[1], "Hello Luke\n", 11);

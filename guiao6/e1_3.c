@@ -1,7 +1,7 @@
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <unistd.h>
 /*
  * Escreva três programas. O primeiro cria apenas um pipe com nome “fifo”.
  * O segundo repete para este pipe todas as linhas de texto lidas a partir
@@ -18,12 +18,12 @@
  * até que um processo o abra para leitura, e vice-versa.
  */
 
-int main(){
+int main()
+{
     int n;
     int fd = open("fifo", O_RDONLY);
     char buf[10];
-    while((n=read(fd,buf,10)))
-        write(1,buf,n);
+    while ((n = read(fd, buf, 10)))
+        write(1, buf, n);
     return 0;
 }
-

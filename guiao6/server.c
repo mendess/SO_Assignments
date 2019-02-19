@@ -1,35 +1,36 @@
-#include <unistd.h>
 #include <fcntl.h>
-#include <sys/stat.h>
 #include <stdio.h>
+#include <sys/stat.h>
 #include <sys/wait.h>
+#include <unistd.h>
 
-int main(){
+int main()
+{
     printf("Starting server...\n");
     mkfifo("pip", 0644);
     printf("Forking..\n");
-    if(!fork()){
+    if (!fork()) {
 
         printf("Opening pipe\n");
         int input = open("pip", O_RDONLY);
-        if(input < 0) printf("Cona no pipe");
+        if (input < 0)
+            printf("Cona no pipe");
 
         printf("Opening log\n");
-        int log = open("log.txt", O_CREAT|O_WRONLY, 0644);
-        if(log < 0) printf("Cona no log");
-
+        int log = open("log.txt", O_CREAT | O_WRONLY, 0644);
+        if (log < 0)
+            printf("Cona no log");
 
         printf("Reading\n");
 
-        while(1){
+        while (1) {
             char buf[1024];
-            int n = read(input,buf,1024);
-            if(read > 0)
-              write(log, buf, n);
+            int n = read(input, buf, 1024);
+            if (read > 0)
+                write(log, buf, n);
         }
-    }else{
-      wait(NULL);
+    } else {
+        wait(NULL);
     }
     return 0;
-
 }

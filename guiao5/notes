@@ -1,0 +1,14 @@
+read - ha dados - sim - does the thing
+		- nao - há writes - sim - espera
+				  - não - \EOF
+
+write - ha reads - nao - SIGPIPE (kill the program)
+		 - sim - estão à espera? - sim - does the thing
+					 - nao - wait
+
+
+
+grep | cat | uniq | wc
+
+  2     1    4    3    6     5   7
+|grep| === |cat| === |uniq| === |wc|

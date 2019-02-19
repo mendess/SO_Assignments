@@ -1,0 +1,15 @@
+mkfifo umpipe "cria o pipe"
+
+ls -la "mostra o pipe"
+
+open("...",O_WRONLY) para obter a entrada
+open("...",O_RDONLY) para obter a saida
+
+ls > umpipe
+
+wc < umpipe
+
+mkfifo(const char *pathname, mode_t mode);
+pathname = nome do pipe
+mode = permissões, usar "0622"
+

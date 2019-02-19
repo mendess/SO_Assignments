@@ -1,0 +1,1 @@
+for i in a b c; gcc ea1_aux.c -0 $i.out

@@ -1,0 +1,13 @@
+exec   - "limpa" o codigo que está a ser executado e passa a executar o programa dado como argumento
+    l  - precisa do caminho absoluto
+    lp - sistema operaivo procura o file
+    v  - precisa do caminho absoluto
+    vp - sistema operaivo procura o file
+
+
+ex:
+	execlp("ls","ls","/tmp",NULL)
+	execl("bin/ls","ls","/tmp",NULL)
+	
+	char a[] = {"ls","/tmp",NULL}
+	execvp("ls",a)

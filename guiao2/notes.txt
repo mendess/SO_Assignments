@@ -1,0 +1,22 @@
+ps					- list processes
+ps a | grep <num>	- get specific process through it's id
+kill <num> 			- kills a process with a certain id
+unlimit -a 			- 
+
+fork	returns the pid of the son process or 0 if the process itself is a son
+
+top:
+	1 Expande os cpus
+
+ps:
+PID:  pid
+TTY:  Tele-type-writer
+TIME:
+CMD:
+
+
+less - paginacao
+
+sudo telinit 1  -  passa para tudo para runlevel 1 (rip ambiente grafico)
+
+

@@ -11,7 +11,7 @@ int main(int argc, char const* argv[])
         return 1;
     }
     char c[11] = "aaaaaaaaaa";
-    int fd = open(argv[1], O_WRONLY);
+    int fd = open(argv[1], O_WRONLY | O_CREAT, 0666);
     for (int i = 0; i < DEZMEGA; ++i) {
         write(fd, &c, 1);
     }

@@ -13,13 +13,9 @@ int main()
 
         printf("Opening pipe\n");
         int input = open("pip", O_RDONLY);
-        if (input < 0)
-            printf("Cona no pipe");
 
         printf("Opening log\n");
         int log = open("log.txt", O_CREAT | O_WRONLY, 0644);
-        if (log < 0)
-            printf("Cona no log");
 
         printf("Reading\n");
 
